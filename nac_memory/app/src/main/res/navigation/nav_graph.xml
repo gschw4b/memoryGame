@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.br.nac_memory.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@+id/nav_graph"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.br.nac_memory.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_gameActivity"
+            app:destination="@id/gameActivity"/>
+        <action
+            android:id="@+id/action_startFragment_to_rankingFragment"
+            app:destination="@id/rankingFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/gameActivity"
+        android:name="com.br.nac_memory.GameScreen"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <argument
+            android:name="player_name"
+            app:argType="string"
+            android:defaultValue="Player" />
+    </activity>
+    <fragment
+        android:id="@+id/rankingFragment"
+        android:name="com.br.nac_memory.RankingFragment"
+        android:label="fragment_ranking"
+        tools:layout="@layout/fragment_ranking" />
+</navigation>
